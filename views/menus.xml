@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!--Cal afegir parent i action als snipets!-->
+    <!--Els parent que fan referencia a un altre mòdul, necessiten el prefix del nom del mòdul!-->
     <menuitem
         id="school_student_menu"
         name="Students"
