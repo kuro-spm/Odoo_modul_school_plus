@@ -25,8 +25,8 @@ class SchoolEnrollment(models.Model):
     course_edition_date_stop = fields.Date(string='Stop Date', related='edition_id.date_stop', readonly=True)
 
     #related fields de l'alumne:
-    student_phone=fields.Char('Phone', related='student_id.phone' readonly=True)
-    student_email=fields.Char('email', related='student_id.email' readonly=True)
+    student_phone=fields.Char('Phone', related='student_id.phone', readonly=True)
+    student_email=fields.Char('email', related='student_id.email', readonly=True)
 
     @api.constrains('qualification')
     def _check_qualification(self):
@@ -40,35 +40,34 @@ class SchoolEnrollment(models.Model):
     
 
     @api.model_create_multi
-    def create(self, vals_list):
-        # 1. Primer creem les matrícules (enrollments) cridant al super.
-        # 'registres' serà un recordset amb les matrícules ja creades (i amb ID!).
-        registres = super(SchoolEnrollment, self).create(vals_list)
+    def create(self, values):
+        # 1. Primer creem les matrícules utilitzant el super()
+        # r és la llista de registres (recordset) ja creats a la BD
+        r = super().create(values)
 
-        # 2. Iterem sobre cada matrícula acabada de crear
-        for matricula in registres:
-            # 3. Obtenim el curs a través de l'edició
-            # Recorda: l'edició sap a quin curs pertany (edition_id.course_id)
+        # 2. Ara processem cada matrícula inserida per afegir-li les assignatures
+        for matricula in r:
+            # Obtenim el curs a través de l'edició
             curs = matricula.edition_id.course_id
-
+            
             if curs:
-                # 4. Busquem les assignatures que formen part d'aquest curs
-                # Anem a la taula 'school.course.subject'
-                assignatures_del_curs = self.env['school.course.subject'].search([
+                # Busquem les assignatures vinculades a aquest curs
+                assignatures_curs = self.env['school.course.subject'].search([
                     ('course_id', '=', curs.id)
                 ])
 
-                # 5. Per cada assignatura trobada, creem el registre a la taula de notes
-                for line in assignatures_del_curs:
-                    self.env['school.enrollment.subject'].create({
-                        'enrollment_id': matricula.id,  # Lliguem a la matrícula actual
-                        'subject_id': line.subject_id.id, # L'assignatura concreta
-                        'qualification': 0.0             # Nota inicial per defecte
-                    })
-        
-        # 6. Finalment, retornem el recordset original com marca el protocol d'Odoo
-        return registres
+                # Per cada assignatura del curs, creem un registre a 'school.enrollment.subject'
+                for linia in assignatures_curs:
+                    nota_inicial = {}
+                    nota_inicial['enrollment_id'] = matricula.id
+                    nota_inicial['subject_id'] = linia.subject_id.id
+                    nota_inicial['qualification'] = 0.0
+                    
+                    # Creem el registre de la nota utilitzant el diccionari preparat
+                    self.env['school.enrollment.subject'].create(nota_inicial)
 
+        # 3. Retornem el recordset de matrícules tal com dicta la norma d'Odoo
+        return r
                             
                             
                             
