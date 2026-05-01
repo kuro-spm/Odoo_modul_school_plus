@@ -18,13 +18,16 @@ class SchoolStudent(models.Model):
     birthdate = fields.Date('Birthdate', required=True)
     phone = fields.Char('Phone', required=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other','Other')],'Gender', required=True)
+    country_id = fields.Many2one('res.country','Citizenship', required=True)
+
     #adress
     address1 = fields.Char('Adress 1', required=True)
     address2 = fields.Char('Adress 2') #no obligatoria
     zip_code = fields.Char('Zip Code', required=True)
     city = fields.Char('City', required=True)
     state_id = fields.Many2one('res.country.state', string='State')
-    country_id = fields.Many2one('res.country','Citizenship', required=True)
+    state_country_id = fields.Many2one('res.country', related='state_id.country_id', string='Country', readonly=True,  store=True)
+
 
     #Dades optatives:
     email = fields.Char('eMail', size=60, required=False)
