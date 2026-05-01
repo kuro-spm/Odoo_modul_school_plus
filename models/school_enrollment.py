@@ -12,7 +12,7 @@ class SchoolEnrollment(models.Model):
     _name = 'school.enrollment'
     _description = 'School Enrollment Management'
 
-    qualification = fields.Float(digits=(3,1), string="Qualification", required=True)
+    qualification = fields.Float(digits=(3,1), string="Qualification")
     student_id = fields.Many2one('school.student', string='Student', required=True)
     subject_ids = fields.One2many('school.enrollment.subject', 'enrollment_id', string='Subjects')
     edition_id = fields.Many2one('school.course.edition', string='Course edition', required=True) 
@@ -36,7 +36,7 @@ class SchoolEnrollment(models.Model):
             if obj.qualification > 10.0 or obj.qualification < 0.0:
                 raise ValidationError(_('Qualification must be between 0.0 and 10.0'))
     
-    
+
     @api.model_create_multi
     def create(self, vals_list):
         # 1. Primer creem les matrícules (enrollments) cridant al super.
