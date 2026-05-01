@@ -23,23 +23,23 @@
                 <sheet>
                     <field name="age" invisible="1" /> <!-- Cal que 'age' estigui a la vista per poder-lo avaluar -->
                     <group>
-                        <group>
-                            <field name="first_name" string='First Name' />
-                            <field name="last_name" string='Last Name' />
+                        <group col='4'>
+                            <field name="first_name" string='First Name' colspan='4' />
+                            <field name="last_name" string='Last Name'  colspan='4'/>
 
                             <!-- Grup intern de 4 columnes per posar 2 camps a la mateixa fila -->
-                            <group col="4" colspan="2"> <!--class="mt-0 mb-0"-->
-                                <field name="birthdate" widget="calendar" />
-                                <field name="country_id" string="Birthcountry" />
-                                <field name="gender" />
-                                <field name="tin" required="age &gt;= 14" />
-                            </group>
+                            <!--class="mt-0 mb-0"-->
+                            <field name="birthdate" widget="calendar" />
+                            <field name="country_id" string="Birthcountry" />
+                            <field name="gender" />
+                            <field name="tin" required="age &gt;= 14" />
+
 
                             <field name="phone" widget="phone" />
-                            <field name="email" />
+                            <field name="email"  colspan='4'/>
 
-                            <field name="address1" />
-                            <field name="address2" />
+                            <field name="address1" colspan='4' />
+                            <field name="address2"  colspan='4'/>
                             <field name="zip_code" />
                             <field name="city" />
                             <field name="state_id" />
