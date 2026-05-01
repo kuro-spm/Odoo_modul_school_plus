@@ -28,17 +28,21 @@
                         <group string="Student Information" col="4">
                             <field name="first_name" colspan="4" />
                             <field name="last_name" colspan="4" />
-                            <field name="birthdate" widget="calendar" colspan="2" />
-                            <field name="country_id" string="Birthcountry" colspan="2" />
-                            <field name="gender" colspan="2" />
-                            <field name="tin" required="age >= 14" colspan="2" />
+
+                            <field name="birthdate" widget="calendar" />
+                            <field name="country_id" string="Birthcountry" />
+                            <field name="gender" />
+                            <field name="tin" required="age >= 14" />
+
                             <field name="phone" widget="phone" colspan="4" />
                             <field name="email" colspan="4" />
                             <field name="address1" string="Address" colspan="4" />
                             <field name="address2" nolabel="1" colspan="4" placeholder="Apartment, suite, etc." />
-                            <field name="zip_code" colspan="2" />
-                            <field name="city" colspan="2" />
-                            <field name="state_id" colspan="4" options="{'no_open': True}" />
+
+                            <field name="zip_code" />
+                            <field name="city" />
+                            <field name="state_id" />
+                            <field name="country_id" />
                         </group>
 
                         <group col="4" string="Guardian's information">
