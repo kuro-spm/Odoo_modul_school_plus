@@ -36,18 +36,32 @@ class SchoolStudent(models.Model):
     #Altres relacions
     enrollment_ids = fields.One2many('school.enrollment', 'student_id', string='Enrollment')
 
-    #El Tutor/Pagador (res.partner)
+    # El Tutor/Pagador (res.partner)
     customer_id = fields.Many2one('res.partner', string="Guardian", required=True)   
-    #Related fields
-    customer_phone = fields.Char(string='Phone', related='customer_id.phone', readonly=True)
-    customer_street = fields.Char(string='Street', related='customer_id.street', readonly=True)
-    customer_street2 = fields.Char(string='Street 2', related='customer_id.street2', readonly=True)
-    customer_zip = fields.Char(string='Zip', related='customer_id.zip', readonly=True)
-    customer_city = fields.Char(string='City', related='customer_id.city', readonly=True)
-    # Aquests han de ser Many2one perquè Odoo els mostri correctament (amb la bola del món o el cercador)
-    customer_state_id = fields.Many2one('res.country.state', string='State', related='customer_id.state_id', readonly=True)
-    customer_country_id = fields.Many2one('res.country', string='Country', related='customer_id.country_id', readonly=True)
 
+    # Related fields: És vital afegir readonly=True i, preferiblement, store=False 
+    # per no omplir la base de dades amb informació duplicada.
+    customer_phone = fields.Char(related='customer_id.phone', string='Phone', readonly=True)
+    customer_street = fields.Char(related='customer_id.street', string='Street', readonly=True)
+    customer_street2 = fields.Char(related='customer_id.street2', string='Street 2', readonly=True)
+    customer_zip = fields.Char(related='customer_id.zip', string='Zip', readonly=True)
+    customer_city = fields.Char(related='customer_id.city', string='City', readonly=True)
+
+    # CORRECCIÓ CLAU: 
+    # Per als camps Many2one, assegura't que el co-model ('res.country.state') 
+    # sigui exactament el mateix que el camp original al que apuntes.
+    customer_state_id = fields.Many2one(
+        comodel_name='res.country.state', 
+        related='customer_id.state_id', 
+        string='State', 
+        readonly=True
+    )
+    customer_country_id = fields.Many2one(
+        comodel_name='res.country', 
+        related='customer_id.country_id', 
+        string='Country', 
+        readonly=True
+    )
 
     @api.depends('first_name', 'last_name')
     def _compute_display_name(self):
