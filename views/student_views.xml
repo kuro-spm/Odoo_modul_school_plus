@@ -45,8 +45,9 @@
                             <field name="state_country_id" readonly='1' />
                         </group>
 
-                        <group col="4" string="Guardian's information" invisible="age &gt; 17">
+                        <group col="4">
                             <!-- El camp de text ocupa tota l'amplada (4 columnes) -->
+                            <label for='guardian_info' string="Guardian's information" readonly='1' invisible="age &gt; 17" />
                             <field name="guardian_info"
                                 required="age &lt; 18"
                                 invisible="age &gt; 17"
