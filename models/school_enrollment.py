@@ -58,7 +58,7 @@ class SchoolEnrollment(models.Model):
                 for linia in assignatures_curs:
                     nota_inicial = {}
                     nota_inicial['enrollment_id'] = matricula.id
-                    nota_inicial['subject_id'] = linia.subject_id.id
+                    nota_inicial['subject_id'] = linia.subject_id
                     nota_inicial['qualification'] = 0.0
                     
                     # Creem el registre de la nota utilitzant el diccionari preparat
