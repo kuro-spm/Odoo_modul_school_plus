@@ -3,17 +3,19 @@
     <!--Cal afegir parent i action als snipets!-->
     <!--Els parent que fan referencia a un altre mòdul, necessiten el prefix del nom del mòdul!-->
     <menuitem
+        id="school_enrollment_menu"
+        name="Enrollment"
+        sequence="20"
+        parent='school.menu_root'
+        action='school_enrollment_action' />
+
+    <menuitem
         id="school_student_menu"
         name="Students"
-        sequence="10"
+        sequence="40"
         parent='school.menu_root'
         action='school_student_action' />
 
-    <menuitem
-        id="school_enrollment_menu"
-        name="Enrollment"
-        sequence="10"
-        parent='school.menu_root'
-        action='school_enrollment_action' />
+   
 
 </odoo> 
