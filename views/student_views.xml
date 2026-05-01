@@ -19,7 +19,7 @@
         <field name="name">school.student.view.form</field>
         <field name="model">school.student</field>
         <field name="arch" type="xml">
-            <form string="">
+            <form>
                 <sheet>
                     <group col='8'>
                         <group col='4'>

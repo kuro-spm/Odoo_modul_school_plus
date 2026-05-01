@@ -20,8 +20,8 @@ class SchoolStudent(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other','Other')],'Gender', required=True)
 
     #adress
-    adress1 = fields.Char('Adress 1', required=True)
-    adress2 = fields.Char('Adress 2') #no obligatoria
+    address1 = fields.Char('Adress 1', required=True)
+    address2 = fields.Char('Adress 2') #no obligatoria
     zip_code = fields.Char('Zip Code', required=True)
     city = fields.Char('City', required=True)
   
