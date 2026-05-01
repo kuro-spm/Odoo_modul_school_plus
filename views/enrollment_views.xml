@@ -28,7 +28,7 @@
                             <field name="student_id" />
                             <field name="edition_id" />
                         </group>
-                        <group string='Student information'><!--Dreta-->
+                        <group><!--Dreta-->
                             <field name="student_phone" readonly='1' />
                             <field name="student_email" readonly='1' />
                         </group>
