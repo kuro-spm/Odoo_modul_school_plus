@@ -53,14 +53,14 @@
                             <!--Necessitem els camps del customer_id dins del model-->
                             <field name="customer_phone" widget="phone" />
                             <!--<field name="customer_street" /> <field name="customer_street2" /> <field name="customer_city" /> <field name="customer_state_id" /> <field name="customer_zip" /> <field name="customer_country_id" />-->
+                            <div class="o_address_format">
+                                <field name="customer_street" placeholder="Street..." class="o_address_street" readonly="True" />
+                                <field name="customer_street2" placeholder="Street 2..." class="o_address_street" readonly="True" />
+                                <field name="customer_city" placeholder="City" class="o_address_city" readonly="True" />
+                                <field name="customer_state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" readonly='True' />
+                                <field name="customer_zip" placeholder="ZIP" class="o_address_zip" readonly="True" />
+                            </div>
                         </group>
-                        <div class="o_address_format">
-                            <field name="customer_street" placeholder="Street..." class="o_address_street" readonly="True" />
-                            <field name="customer_street2" placeholder="Street 2..." class="o_address_street" readonly="True" />
-                            <field name="customer_city" placeholder="City" class="o_address_city" readonly="True" />
-                            <field name="customer_state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" readonly='True' />
-                            <field name="customer_zip" placeholder="ZIP" class="o_address_zip" readonly="True" />
-                        </div>
 
                     </group>
                     <notebook>
