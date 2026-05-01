@@ -52,10 +52,10 @@
                                 required="age &lt; 18"
                                 invisible="age &gt; 17"
                                 colspan="4"
-                                placeholder="Informació sobre els tutors..." />
+                                placeholder="Guardian's information..." />
 
                             <!-- Grup del pagador: usem colspan="4" perquè ocupi tota la fila del pare -->
-                            <group string="Paying tutor information" col="4" colspan="4">
+                            <group string="Information of client who pays..." col="4" colspan="4">
                                 <field name="customer_id" />
                                 <field name="customer_phone" widget="phone" />
                                 <field name="customer_street" colspan="4" />
