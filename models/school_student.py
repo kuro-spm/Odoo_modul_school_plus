@@ -26,8 +26,6 @@ class SchoolStudent(models.Model):
     state_id = fields.Many2one('res.country.state', string='State')
     country_id = fields.Many2one('res.country','Citizenship', required=True)
 
-    #El Tutor/Pagador (res.partner)
-    customer_id = fields.Many2one('res.partner', string="Guardian", required=True)   
     #Dades optatives:
     email = fields.Char('eMail', size=60, required=False)
     #Camps calculats
@@ -37,6 +35,18 @@ class SchoolStudent(models.Model):
     guardian_info = fields.Text('Guardian information')
     #Altres relacions
     enrollment_ids = fields.One2many('school.enrollment', 'student_id', string='Enrollment')
+
+    #El Tutor/Pagador (res.partner)
+    customer_id = fields.Many2one('res.partner', string="Guardian", required=True)   
+    #Related fields
+    customer_phone = fields.Char(string='Phone', related ='res.partner.phone' )
+    customer_street = fields.Char(string='Street', related ='res.partner.street')
+    customer_street2 = fields.Char(string='Street', related ='res.partner.street2')
+    customer_zip=fields.Char(string='Zip', related = 'res.partner.zip')
+    customer_city=fields.Char(string='City', related = 'res.partner.city')
+    customer_state_id=fields.Char(string='State', related = 'res.partner.state_id')
+    customer_country_id=fields.Char(string='Country', related = 'res.partner.country_id')
+
 
     @api.depends('first_name', 'last_name')
     def _compute_display_name(self):

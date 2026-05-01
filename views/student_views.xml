@@ -35,7 +35,7 @@
                                 <field name="tin" required="age &gt;= 14" />
                             </group>
 
-                            <field name="phone" />
+                            <field name="phone" widget="phone" />
                             <field name="email" />
 
                             <field name="address1" />
@@ -50,8 +50,14 @@
                         <field name="guardian_info" required="age &lt; 18" />
                         <group string="Paying tutor information">
                             <field name="customer_id" />
-                            <!--Necessitem els camps del customer_id dins del model-->
-
+                            <!--Necessitem els camps del customer_id dins del model-->      
+                            <field name="customer_phone" />
+                            <field name="customer_street" />
+                            <field name="customer_street2" />
+                            <field name="customer_zip" />
+                            <field name="customer_city" />
+                            <field name="customer_state_id" />
+                            <field name="customer_country_id" />
                         </group>
 
                     </group>
