@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="edition_id" />
+                <!--Necessitem camps related!-->
                 <field name="course_edition_date_start" />
                 <field name="course_edition_date_stop" />
                 <field name="student_id" />
