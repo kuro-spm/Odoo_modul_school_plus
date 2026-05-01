@@ -48,21 +48,17 @@
                     <group col='4' string="Guardian's information">
                         <!-- A l'XML, dins del <form> -->
                         <field name="guardian_info" required="age &lt; 18" />
-                        <group string="Paying tutor information">
+                        <group string="Paying tutor information" col='4'>
                             <field name="customer_id" />
+                            <!--Necessitem els camps del customer_id dins del model-->
                             <field name="customer_phone" widget="phone" />
-
-                            <!-- Afegim la etiqueta manualment per al bloc d'adreça -->
-                            <label for="customer_street" string="Address" />
-                            <div class="o_address_format">
-                                <field name="customer_street" placeholder="Street..." class="o_address_street" readonly="1" />
-                                <field name="customer_street2" placeholder="Street 2..." class="o_address_street" readonly="1" />
-                                <field name="customer_city" placeholder="City" class="o_address_city" readonly="1" />
-                                <field name="customer_state_id" class="o_address_state" placeholder="State" options="{'no_open': True}" readonly="1" />
-                                <field name="customer_zip" placeholder="ZIP" class="o_address_zip" readonly="1" />
-                            </div>
+                            <field name="customer_street" colspan='4' />
+                            <field name="customer_street2" colspan='4' label='0' />
+                            <field name="customer_zip" />
+                            <field name="customer_city" />
+                            <field name="customer_state_id" />
+                            <field name="customer_country_id" />
                         </group>
-
                     </group>
                     <notebook>
                         <page string="Enrollments">
