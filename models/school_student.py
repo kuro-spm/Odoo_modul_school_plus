@@ -48,8 +48,8 @@ class SchoolStudent(models.Model):
     enrollment_ids = fields.One2many('school.enrollment', 'student_id', string='Enrollment')
 
     #related fields
-    course_edition_date_start = fields.Date('school.course.edition', string='Init date' , related='date_start')
-    course_edition_date_stop = fields.Date('school.course.edition', string='End date' , related='date_stop')
+    course_edition_date_start = fields.Date('school.course.edition', string='Init date' , related='edition_id.date_start')
+    course_edition_date_stop = fields.Date('school.course.edition', string='End date' , related='edition_id.date_stop')
 
     @api.depends('first_name', 'last_name')
     def _compute_display_name(self):
