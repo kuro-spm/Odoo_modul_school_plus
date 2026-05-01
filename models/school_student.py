@@ -39,13 +39,14 @@ class SchoolStudent(models.Model):
     #El Tutor/Pagador (res.partner)
     customer_id = fields.Many2one('res.partner', string="Guardian", required=True)   
     #Related fields
-    customer_phone = fields.Char(string='Phone', related ='res.partner.phone' )
-    customer_street = fields.Char(string='Street', related ='res.partner.street')
-    customer_street2 = fields.Char(string='Street', related ='res.partner.street2')
-    customer_zip=fields.Char(string='Zip', related = 'res.partner.zip')
-    customer_city=fields.Char(string='City', related = 'res.partner.city')
-    customer_state_id=fields.Char(string='State', related = 'res.partner.state_id')
-    customer_country_id=fields.Char(string='Country', related = 'res.partner.country_id')
+    customer_phone = fields.Char(string='Phone', related='customer_id.phone', readonly=True)
+    customer_street = fields.Char(string='Street', related='customer_id.street', readonly=True)
+    customer_street2 = fields.Char(string='Street 2', related='customer_id.street2', readonly=True)
+    customer_zip = fields.Char(string='Zip', related='customer_id.zip', readonly=True)
+    customer_city = fields.Char(string='City', related='customer_id.city', readonly=True)
+    # Aquests han de ser Many2one perquè Odoo els mostri correctament (amb la bola del món o el cercador)
+    customer_state_id = fields.Many2one('res.country.state', string='State', related='customer_id.state_id', readonly=True)
+    customer_country_id = fields.Many2one('res.country', string='Country', related='customer_id.country_id', readonly=True)
 
 
     @api.depends('first_name', 'last_name')
