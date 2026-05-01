@@ -18,6 +18,10 @@ class SchoolEnrollment(models.Model):
     edition_id = fields.Many2one('school.course.edition', string='edition', required=True) 
     
     #Necessitem start_date i stop_date del course edition
+    #related fields
+    course_edition_date_start = fields.Date('school.course.edition' , related='edition_id.date_start')
+    course_edition_date_stop = fields.Date('school.course.edition' , related='edition_id.date_stop')
+
 
     @api.constrains('qualification')
     def _check_qualification(self):
