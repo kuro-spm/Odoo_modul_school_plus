@@ -36,7 +36,10 @@
                     <notebook>
                         <page name="subjects" string="Subjects">
                             <field name="subject_ids" readonly='1'>
-                                <!--<list> </list>-->
+                                <list>
+                                    <field name="subject_id" />
+                                    <field name="qualification" />
+                                </list>
                             </field>
                         </page>
                     </notebook>
