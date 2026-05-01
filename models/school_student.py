@@ -73,7 +73,10 @@ class SchoolStudent(models.Model):
         for obj in self:
             if obj.birthdate: 
                 obj.age = relativedelta(avui, obj.birthdate).years
-            
+            else:
+                obj.age=0
+
+
     @api.onchange('tin')
     def _onchange_tin(self):
         if(self.tin):
