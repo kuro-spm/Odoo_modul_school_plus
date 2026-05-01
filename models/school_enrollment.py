@@ -31,8 +31,6 @@ class SchoolEnrollment(models.Model):
     @api.constrains('qualification')
     def _check_qualification(self):
         for obj in self:
-            if not obj.qualification:
-                obj.qualification=0
             # S'avalua directament la condició matemàtica.
             # Es recomana posar els decimals (10.0 i 0.0) per mantenir la coherència de tipus Float.
             if obj.qualification > 10.0 or obj.qualification < 0.0:
