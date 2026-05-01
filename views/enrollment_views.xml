@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- school.enrollment tree view -->
+    <!--Compte amb els punts i els guions!!!-->
+    <record id="school_enrollment_view_list" model="ir.ui.view">
+        <field name="name">school.enrollment.view.list</field>
+        <field name="model">school.enrollment</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="edition_id" />
+                <field name="course_edition_date_start" />
+                <field name="course_edition_date_stop" />
+                <field name="student_id" />
+            </list>
+        </field>
+    </record>
 
-    
 
 </odoo>

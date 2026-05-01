@@ -17,6 +17,8 @@ class SchoolEnrollment(models.Model):
     subject_ids = fields.One2many('school.enrollment.subject', 'enrollment_id', string='Subjects')
     edition_id = fields.Many2one('school.course.edition', string='edition', required=True) 
     
+    #Necessitem start_date i stop_date del course edition
+
     @api.constrains('qualification')
     def _check_qualification(self):
         for obj in self:
