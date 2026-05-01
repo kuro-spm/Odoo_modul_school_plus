@@ -15,7 +15,7 @@ class SchoolEnrollment(models.Model):
     qualification = fields.Float(digits=(3,1), string="Qualification", required=True)
     student_id = fields.Many2one('school.student', string='Student', required=True)
     subject_ids = fields.One2many('school.enrollment.subject', 'enrollment_id', string='Subjects')
-    edition_id = fields.Many2one('school.course.edition', string='edition', required=True) 
+    edition_id = fields.Many2one('school.course.edition', string='Course edition', required=True) 
     
     #Related fields
     #Necessitem start_date i stop_date del course edition
