@@ -45,19 +45,23 @@
                             <field name="state_id" />
                         </group>
                     </group>
-                    <group col='4' string="Guardian's information">
-                        <!-- A l'XML, dins del <form> -->
-                        <field name="guardian_info" required="age &lt; 18" />
-                        <group string="Paying tutor information" col='4'>
+                    <group col="4" string="Guardian's information">
+                        <!-- El camp de text ocupa tota l'amplada (4 columnes) -->
+                        <field name="guardian_info"
+                            required="age &lt; 18"
+                            colspan="4"
+                            placeholder="Informació sobre els tutors..." />
+
+                        <!-- Grup del pagador: usem colspan="4" perquè ocupi tota la fila del pare -->
+                        <group string="Paying tutor information" col="4" colspan="4">
                             <field name="customer_id" />
-                            <!--Necessitem els camps del customer_id dins del model-->
                             <field name="customer_phone" widget="phone" />
-                            <field name="customer_street" colspan='4' />
-                            <field name="customer_street2" colspan='4' label='0' />
+                            <field name="customer_street" colspan="4" />
+                            <field name="customer_street2" nolabel="1" colspan="4" placeholder="Carrer 2..." />
                             <field name="customer_zip" />
                             <field name="customer_city" />
-                            <field name="customer_state_id" />
-                            <field name="customer_country_id" />
+                            <field name="customer_state_id" options="{'no_open': True}" />
+                            <field name="customer_country_id" options="{'no_open': True, 'no_create': True}" />
                         </group>
                     </group>
                     <notebook>
