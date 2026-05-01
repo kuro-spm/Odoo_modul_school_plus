@@ -69,10 +69,10 @@
                     </group> <!--Tancar grup pare-->
                     <notebook>
                         <page string="Enrollments">
-                            <field name="enrollment_ids">
+                            <field name="enrollment_ids" readonly='1'>
                                 <list>
-                                    <field name="edition_id" string="Course Edition" />
-                                    <field name="qualification" />
+                                    <field name="edition_id" string="Course Edition" readonly='1' />
+                                    <field name="qualification" readonly='1' />
                                 </list>
                             </field>
                         </page>
