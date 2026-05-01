@@ -17,10 +17,10 @@ class SchoolEnrollment(models.Model):
     subject_ids = fields.One2many('school.enrollment.subject', 'enrollment_id', string='Subjects')
     edition_id = fields.Many2one('school.course.edition', string='edition', required=True) 
     
+    #Related fields
     #Necessitem start_date i stop_date del course edition
-    #related fields
-    course_edition_date_start = fields.Date('school.course.edition' , related='edition_id.date_start')
-    course_edition_date_stop = fields.Date('school.course.edition' , related='edition_id.date_stop')
+    course_edition_date_start = fields.Date('school.course.edition', string='Start Date' , related='edition_id.date_start')
+    course_edition_date_stop = fields.Date('school.course.edition', string='Stop Date' , related='edition_id.date_stop')
 
 
     @api.constrains('qualification')
