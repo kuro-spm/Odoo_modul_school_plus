@@ -36,26 +36,36 @@ class SchoolEnrollment(models.Model):
             if obj.qualification > 10.0 or obj.qualification < 0.0:
                 raise ValidationError(_('Qualification must be between 0.0 and 10.0'))
     
+    
     @api.model_create_multi
-    def create(self,values):
-        # values és una llista de diccionaris amb els valors dels camps dels registres a inserir
-        r= super().create(values) #llista de registres ja creats (ja tenen ID)
+    def create(self, vals_list):
+        # 1. Primer creem les matrícules (enrollments) cridant al super.
+        # 'registres' serà un recordset amb les matrícules ja creades (i amb ID!).
+        registres = super(SchoolEnrollment, self).create(vals_list)
+
+        # 2. Iterem sobre cada matrícula acabada de crear
+        for matricula in registres:
+            # 3. Obtenim el curs a través de l'edició
+            # Recorda: l'edició sap a quin curs pertany (edition_id.course_id)
+            curs = matricula.edition_id.course_id
+
+            if curs:
+                # 4. Busquem les assignatures que formen part d'aquest curs
+                # Anem a la taula 'school.course.subject'
+                assignatures_del_curs = self.env['school.course.subject'].search([
+                    ('course_id', '=', curs.id)
+                ])
+
+                # 5. Per cada assignatura trobada, creem el registre a la taula de notes
+                for line in assignatures_del_curs:
+                    self.env['school.enrollment.subject'].create({
+                        'enrollment_id': matricula.id,  # Lliguem a la matrícula actual
+                        'subject_id': line.subject_id.id, # L'assignatura concreta
+                        'qualification': 0.0             # Nota inicial per defecte
+                    })
         
-        for d in r:
-            enrollment_id= '???'
-            #per cada valor edition_id al diccionari de valors...
-            if 'enrollment_id' in d and d['enrollment_id']!=False:
-                #hem de crear enrollment_subject...
-                #anem a buscar les assignatures a school.course.subject...
-                enroll_subj={}
-                enroll_subj[self.edition_id] = d['enrollment_id']
-                enroll_subj[self.qualification]=0
-                subjects = self.env['school.course.subject'].search([('course_id', '=', d[''])])
-                for sbj in subjects:
-                    enroll_subj[subject_id] = sbj
-                    self.env['school.enrollment.subject'].create(enroll_subj)
-
-
+        # 6. Finalment, retornem el recordset original com marca el protocol d'Odoo
+        return registres
 
                             
                             
