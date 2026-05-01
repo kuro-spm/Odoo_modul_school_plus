@@ -36,5 +36,33 @@ class SchoolEnrollment(models.Model):
             if obj.qualification > 10.0 or obj.qualification < 0.0:
                 raise ValidationError(_('Qualification must be between 0.0 and 10.0'))
     
+    @api.model_create_multi
+    def create(self,values):
+        # values és una llista de diccionaris amb els valors dels camps dels registres a inserir
+        r= super().create(values) #llista de registres ja creats (ja tenen ID)
+        
+        for d in r:
+            enrollment_id= '???'
+            #per cada valor edition_id al diccionari de valors...
+            if 'enrollment_id' in d and d['enrollment_id']!=False:
+                #hem de crear enrollment_subject...
+                #anem a buscar les assignatures a school.course.subject...
+                enroll_subj={}
+                enroll_subj[self.edition_id] = d['enrollment_id']
+                enroll_subj[self.qualification]=0
+                subjects = self.env['school.course.subject'].search([('course_id', '=', d[''])])
+                for sbj in subjects:
+                    enroll_subj[subject_id] = sbj
+                    self.env['school.enrollment.subject'].create(enroll_subj)
+
+
+
+                            
+                            
+                            
+
+
+
+
 
     
