@@ -25,11 +25,35 @@
                 <sheet>
                     <group col='8'>
                         <group col='4'>
-
+                            <field name="first_name" />
+                            <field name="last_name" />
+                            <field name="birthdate" widget='calendar' />
+                            <field name="age" invisible="1" /> <!-- Cal que 'age' estigui a la vista per poder-lo avaluar -->
+                            <field name="country_id" />
+                            <field name="gender" />
+                            <field name="tin" required="age &gt;= 14" />
+                            <field name="phone" />
+                            <field name="email" />
+                            <field name="address1" />
+                            <field name="address2" />
+                            <field name="zip_code" />
+                            <field name="city" />
+                            <field name="state_id" />
+                            <field name="country_id" readonly='True' />
                         </group>
                         <group col='4' string="Guardian's information">
+                            <!-- A l'XML, dins del <form> -->
+                            <field name="guardian_info" required="age &lt; 18" />
+                            <group string="Paying tutor information">
+                                <field name="customer_id" />
+                                <!--Necessitem els camps del customer_id dins del model-->
+
+                            </group>
 
                         </group>
+                    </group>
+                    <group name="Enrollments" string="Enrollments">
+
                     </group>
                 </sheet>
             </form>

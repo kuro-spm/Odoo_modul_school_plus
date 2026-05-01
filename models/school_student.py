@@ -20,8 +20,8 @@ class SchoolStudent(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other','Other')],'Gender', required=True)
 
     #adress
-    street1 = fields.Char('Street 1', required=True)
-    street2 = fields.Char('street2') #no obligatoria
+    adress1 = fields.Char('Adress 1', required=True)
+    adress2 = fields.Char('Adress 2') #no obligatoria
     zip_code = fields.Char('Zip Code', required=True)
     city = fields.Char('City', required=True)
   
@@ -38,8 +38,11 @@ class SchoolStudent(models.Model):
 
     #Dades obligatòries segons condició:
     #vat_number = fields.Char('Vat Number', size=11, required='age>=14') #ES12345678L
-    tin = fields.Char('Tax ID', size=14, required='age>=14')
-    guardian_info = fields.Text('Guardian information', required='age<18') #Alternativa: Html.)
+    #tin = fields.Char('Tax ID', size=14, required='age>=14')
+    #guardian_info = fields.Text('Guardian information', required='age<18') #Alternativa: Html.)
+    #Dades obligatòries segons condició (Controlat a la vista XML):
+    tin = fields.Char('Tax ID', size=14)
+    guardian_info = fields.Text('Guardian information')
 
     #Altres relacions
     enrollment_ids = fields.One2many('school.enrollment', 'student_id', string='Enrollment')
