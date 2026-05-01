@@ -49,6 +49,7 @@
                             <!-- El camp de text ocupa tota l'amplada (4 columnes) -->
                             <field name="guardian_info"
                                 required="age &lt; 18"
+                                invisible="age &gt; 17"
                                 colspan="4"
                                 placeholder="Informació sobre els tutors..." />
 
@@ -64,7 +65,7 @@
                                 <field name="customer_country_id" options="{'no_open': True, 'no_create': True}" />
                             </group>
                         </group>
-                    </group>
+                    </group> <!--Tancar grup pare-->
                     <notebook>
                         <page string="Enrollments">
                             <field name="enrollment_ids">
