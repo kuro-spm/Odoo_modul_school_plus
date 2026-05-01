@@ -7,7 +7,7 @@ class SchoolEnrollmentSubject(models.Model):
     _name = 'school.enrollment.subject'
     _description = 'School Enrollment Subject Management'
 
-    qualification = fields.Float(digits=(3,1), string="Qualification", required=True)
+    qualification = fields.Float(digits=(3,1), string="Qualification", required=True, default=0.0)
     enrollment_id = fields.Many2one('school.enrollment', string='Enrollment', required=True, ondelete='cascade') #si dónes de baixa una matrícula sencera, s'esborraran automàticament totes les assignatures que hi havia penjant d'ella i no et quedaran dades escombraries a la base de dades.
     subject_id = fields.Many2one('school.course.subject', string='Subject', required=True)
 
