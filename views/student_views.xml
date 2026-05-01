@@ -24,8 +24,8 @@
                     <field name="age" invisible="1" /> <!-- Cal que 'age' estigui a la vista per poder-lo avaluar -->
                     <group>
                         <group>
-                            <field name="first_name" />
-                            <field name="last_name" />
+                            <field name="first_name" string='First Name' />
+                            <field name="last_name" string='Last Name' />
 
                             <!-- Grup intern de 4 columnes per posar 2 camps a la mateixa fila -->
                             <group col="4" colspan="2"> <!--class="mt-0 mb-0"-->
@@ -59,7 +59,7 @@
                             <field name="customer_state_id" />
                             <field name="customer_country_id" />
                         </group>
-                        <div class="o_address_format">
+                        <!--<div class="o_address_format">
                             <field name="customer_street" placeholder="Street..." class="o_address_street" readonly="type == 'contact' and parent_id" />
                             <field name="customer_street2" placeholder="Street 2..." class="o_address_street" readonly="type == 'contact' and parent_id" />
                             <field name="customer_city" placeholder="City" class="o_address_city" readonly="type == 'contact' and parent_id" />
@@ -68,7 +68,7 @@
                             <div name="partner_address_country" class="d-flex justify-content-between">
                                 <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" readonly="type == 'contact' and parent_id" />
                             </div>
-                        </div>
+                        </div>-->
 
                     </group>
                     <notebook>
