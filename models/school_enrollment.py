@@ -19,9 +19,10 @@ class SchoolEnrollment(models.Model):
     
     #Related fields
     #Necessitem start_date i stop_date del course edition
-    course_edition_date_start = fields.Date('school.course.edition', string='Start Date' , related='edition_id.date_start')
-    course_edition_date_stop = fields.Date('school.course.edition', string='Stop Date' , related='edition_id.date_stop')
-
+    # Related fields
+    #El primer parametre ha de ser string='' o dona error!
+    course_edition_date_start = fields.Date(string='Start Date', related='edition_id.date_start')
+    course_edition_date_stop = fields.Date(string='Stop Date', related='edition_id.date_stop')
 
     @api.constrains('qualification')
     def _check_qualification(self):
