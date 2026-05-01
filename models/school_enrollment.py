@@ -40,7 +40,6 @@ class SchoolEnrollment(models.Model):
     @api.model_create_multi
     def create(self, values):
         # 1. Primer creem les matrícules utilitzant el super()
-        # r és la llista de registres (recordset) ja creats a la BD
         r = super().create(values)
 
         # 2. Ara processem cada matrícula inserida per afegir-li les assignatures
@@ -58,14 +57,14 @@ class SchoolEnrollment(models.Model):
                 for linia in assignatures_curs:
                     nota_inicial = {}
                     nota_inicial['enrollment_id'] = matricula.id
-                    nota_inicial['subject_id'] = linia.subject_id.id
+                    nota_inicial['subject_id'] = linia.id  # <-- CORRECCIÓN: Solo linia.id
                     nota_inicial['qualification'] = 0.0
                     
                     # Creem el registre de la nota utilitzant el diccionari preparat
                     self.env['school.enrollment.subject'].create(nota_inicial)
 
-        # 3. Retornem el recordset de matrícules tal com dicta la norma d'Odoo
-        return r
+        # 3. Retornem el recordset de matrícules
+        return r    
                             
                             
                             
