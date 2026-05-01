@@ -24,6 +24,10 @@ class SchoolEnrollment(models.Model):
     course_edition_date_start = fields.Date(string='Start Date', related='edition_id.date_start')
     course_edition_date_stop = fields.Date(string='Stop Date', related='edition_id.date_stop')
 
+    #related fields de l'alumne:
+    student_phone=fields.Char('Phone', related='student_id.phone')
+    student_email=fields.Char('email', related='student_id.email')
+
     @api.constrains('qualification')
     def _check_qualification(self):
         for obj in self:

@@ -6,13 +6,35 @@
         <field name="name">school.enrollment.view.list</field>
         <field name="model">school.enrollment</field>
         <field name="arch" type="xml">
-            <list editable='top'>
+            <list>
                 <field name="edition_id" />
                 <!--Necessitem camps related!-->
                 <field name="course_edition_date_start" />
                 <field name="course_edition_date_stop" />
                 <field name="student_id" />
             </list>
+        </field>
+    </record>
+
+    <!-- school_enrollment form view -->
+    <record id="school_enrollment_view_form" model="ir.ui.view">
+        <field name="name">school.enrollment.view.form</field>
+        <field name="model">school.enrollment</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group><!--Esquerra-->
+                            <field name="student_id" />
+                            <field name="edition_id" />
+                        </group>
+                        <group string='Student information'><!--Dreta-->
+                            <field name="student_phone" readonly='1' />
+                            <field name="student_email" readonly='1' />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
