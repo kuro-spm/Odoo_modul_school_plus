@@ -39,8 +39,8 @@
                         <page name="subjects" string="Subjects">
                             <field name="subject_ids" readonly='1'>
                                 <list>
-                                    <field name="subject_id"  domain="[('course_id','=',parent.edition_course_id)]" />
-                                    <field name="qualification"  />
+                                    <field name="subject_id" domain="[('course_id','=',parent.edition_course_id)]" />
+                                    <field name="qualification" readonly='0' />
                                 </list>
                             </field>
                         </page>
