@@ -13,7 +13,12 @@
     'author': 'Sara Prats Morales', 
     'website': 'http://www.infomila.info', 
     'license': 'LGPL-3', 
-    'depends': ['base', 'school'], #nom de la carpeta del modul!!!
+    'depends': [   
+        'base',    
+        'account', # Necessari pel camp customer_rank 
+        'school',  # nom de la carpeta del modul!!!
+    ],
+   
     'data': [ 
         #'security/ir.model.access.csv', 
         'views/actions.xml',   # primer accions
