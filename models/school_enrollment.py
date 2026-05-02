@@ -23,6 +23,7 @@ class SchoolEnrollment(models.Model):
     #El primer parametre ha de ser string='' o dona error!
     course_edition_date_start = fields.Date(string='Start Date', related='edition_id.date_start', readonly=True)
     course_edition_date_stop = fields.Date(string='Stop Date', related='edition_id.date_stop', readonly=True)
+    edition_course_id = fields.Many2one(string='Course', related='edition_id.course_id')
 
     #related fields de l'alumne:
     student_phone=fields.Char('Phone', related='student_id.phone', readonly=True)
@@ -57,7 +58,7 @@ class SchoolEnrollment(models.Model):
                 for linia in assignatures_curs:
                     nota_inicial = {}
                     nota_inicial['enrollment_id'] = matricula.id
-                    nota_inicial['subject_id'] = linia.id  # <-- CORRECCIÓN: Solo linia.id
+                    nota_inicial['subject_id'] = linia.id  
                     nota_inicial['qualification'] = 0.0
                     
                     # Creem el registre de la nota utilitzant el diccionari preparat
