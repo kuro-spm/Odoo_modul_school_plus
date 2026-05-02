@@ -9,7 +9,7 @@
         <field name="arch" type="xml">
             <!-- Localitzem el notebook i afegim la pestanya al final[cite: 1, 3] -->
             <xpath expr="//notebook" position="inside">
-                <page name="students" string="Students" invisible="customer_rank == 0"> 
+                <page name="students" string="Students" > <!--invisible="customer_rank == 0"-->
                     <field name="student_ids" readonly='1'>
                         <list>
                             <field name="display_name" string="Full name"></field>
