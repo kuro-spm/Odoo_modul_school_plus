@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- res.partner form view -->
+    <!--TODO: Averiguar per què no apareix la nova page a la vista.-->
     <!--Vigilem amb els noms per no xafar res: afegim inherit-->
     <record id="res_partner_view_form_inherit" model="ir.ui.view">
         <field name="name">res.partner.view.form.inherit</field>
