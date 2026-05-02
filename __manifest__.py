@@ -26,6 +26,7 @@
         'views/enrollment_subject_views.xml', 
         'views/enrollment_views.xml', 
         'views/student_views.xml', 
+        'views/res_partner_views.xml',
     ], 
     'installable': True, 
     'application': True, 
