@@ -5,10 +5,10 @@
         <field name="name">Student Report</field>
         <field name="model">school.student</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">schoolplus.report_student_template</field>
-        <field name="report_file">schoolplus.report_student_template</field>
-        <field name="model_id" ref="schoolplus.model_school_student" />
-        <field name="binding_model_id" ref="schoolplus.model_school_student" />
+        <field name="report_name">school_plus.report_student_template</field>
+        <field name="report_file">school_plus.report_student_template</field>
+        <field name="model_id" ref="school_plus.model_school_student" />
+        <field name="binding_model_id" ref="school_plus.model_school_student" />
         <field name="binding_type">report</field>
     </record>
 
@@ -128,7 +128,7 @@
                                 </tbody>
 
                             </table>
-                            
+
                         </t>
 
 
