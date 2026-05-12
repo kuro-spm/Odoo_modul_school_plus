@@ -3,12 +3,12 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError 
 
 #Forma part de school_plus
-class SchoolEnrollmentSubject(models.Model):
-    _name = 'school.enrollment.subject'
+class SchoolPlusEnrollmentSubject(models.Model):
+    _name = 'schoolplus.enrollment.subject'
     _description = 'School Enrollment Subject Management'
 
     qualification = fields.Float(digits=(3,1), string="Qualification", required=True, default=0.0)
-    enrollment_id = fields.Many2one('school.enrollment', string='Enrollment', required=True, ondelete='cascade') #si dónes de baixa una matrícula sencera, s'esborraran automàticament totes les assignatures que hi havia penjant d'ella i no et quedaran dades escombraries a la base de dades.
+    enrollment_id = fields.Many2one('schoolplus.enrollment', string='Enrollment', required=True, ondelete='cascade') #si dónes de baixa una matrícula sencera, s'esborraran automàticament totes les assignatures que hi havia penjant d'ella i no et quedaran dades escombraries a la base de dades.
     subject_id = fields.Many2one('school.course.subject', string='Subject', required=True)
 
     @api.constrains('qualification')

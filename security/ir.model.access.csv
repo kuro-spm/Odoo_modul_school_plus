@@ -1,1 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink 
+student_teacher,student.teacher,model_schoolplus_student,group_school_teacher,1,0,0,0
+enrollment_teacher,enrollment.teacher,model_schoolplus_enrollment,group_school_teacher,1,0,0,0
+enrollment_subject_teacher,enrollment.subject.teacher,model_schoolplus_enrollment_subject,group_school_teacher,1,0,0,0
+,,,,,,,
+student_manager,student.manager,model_schoolplus_student,group_school_manager,1,1,1,1
+enrollment_manager,enrollment.manager,model_schoolplus_enrollment,group_school_manager,1,1,1,1
+enrollment_subject_manager,enrollment.subject.manager,model_schoolplus_enrollment_subject,group_school_manager,1,1,1,1

@@ -6,8 +6,8 @@ from dateutil.relativedelta import relativedelta
 from ..utils.utils import is_valid_email
 
  #Forma part de school_plus
-class SchoolStudent(models.Model): 
-    _name = 'school.student' 
+class SchoolPlusStudent(models.Model): 
+    _name = 'schoolplus.student' 
     _description = 'Student Management' 
     _rec_name = 'display_name' #Per defecte és Name, però no tenim aquest camp
     _order = 'last_name,first_name'
@@ -37,7 +37,7 @@ class SchoolStudent(models.Model):
     tin = fields.Char('Tax ID', size=14)
     guardian_info = fields.Text('Guardian information')
     #Altres relacions
-    enrollment_ids = fields.One2many('school.enrollment', 'student_id', string='Enrollment')
+    enrollment_ids = fields.One2many('schoolplus.enrollment', 'student_id', string='Enrollment')
 
     # El Tutor/Pagador (res.partner)
     customer_id = fields.Many2one('res.partner', string="Guardian", required=True)   
