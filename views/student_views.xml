@@ -10,6 +10,7 @@
                 <field name="age"></field>
                 <field name="phone"></field>
                 <field name="email"></field>
+                <field name="birthdate" optional="hide" />
             </list>
         </field>
     </record>
