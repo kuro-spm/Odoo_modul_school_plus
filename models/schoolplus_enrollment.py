@@ -8,13 +8,13 @@ from dateutil.relativedelta import relativedelta
 #oof per crear un camp automàticament!
 
 #Forma part de school_plus
-class SchoolPlusEnrollment(models.Model):
-    _name = 'schoolplus.enrollment'
+class SchoolEnrollment(models.Model):
+    _name = 'school.enrollment'
     _description = 'School Enrollment Management'
 
     qualification = fields.Float(digits=(3,1), string="Qualification", default=0.0, required=True)
-    student_id = fields.Many2one('schoolplus.student', string='Student', required=True)
-    subject_ids = fields.One2many('schoolplus.enrollment.subject', 'enrollment_id', string='Subjects')
+    student_id = fields.Many2one('school.student', string='Student', required=True)
+    subject_ids = fields.One2many('school.enrollment.subject', 'enrollment_id', string='Subjects')
     edition_id = fields.Many2one('school.course.edition', string='Course edition', required=True) 
     
     #Related fields
@@ -62,7 +62,7 @@ class SchoolPlusEnrollment(models.Model):
                     nota_inicial['qualification'] = 0.0
                     
                     # Creem el registre de la nota utilitzant el diccionari preparat
-                    self.env['schoolplus.enrollment.subject'].create(nota_inicial)
+                    self.env['school.enrollment.subject'].create(nota_inicial)
 
         # 3. Retornem el recordset de matrícules
         return r    

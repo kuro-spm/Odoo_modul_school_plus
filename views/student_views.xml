@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- model.name form view -->
-    <record id="schoolplus_student_view_list" model="ir.ui.view">
-        <field name="name">schoolplus.student.view.list</field>
-        <field name="model">schoolplus.student</field>
+    <record id="school_student_view_list" model="ir.ui.view">
+        <field name="name">school.student.view.list</field>
+        <field name="model">school.student</field>
         <field name="arch" type="xml">
             <list string="Students">
                 <field name="display_name" string="Full name"></field>
@@ -16,8 +16,8 @@
 
     <!-- school.student form view -->
     <record id="school_student_view_form" model="ir.ui.view">
-        <field name="name">schoolplus.student.view.form</field>
-        <field name="model">schoolplus.student</field>
+        <field name="name">school.student.view.form</field>
+        <field name="model">school.student</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
