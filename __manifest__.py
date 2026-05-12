@@ -27,6 +27,9 @@
         'views/enrollment_views.xml', 
         'views/student_views.xml', 
         'views/res_partner_views.xml',
+        'reports/report_school_student.xml',
+        'wizard/wizard_edition_enrollment.xml',
+  
     ], 
     'installable': True, 
     'application': True, 
