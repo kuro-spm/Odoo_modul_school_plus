@@ -20,7 +20,7 @@
     ],
    
     'data': [ 
-        #'security/ir.model.access.csv', 
+        'security/ir.model.access.csv', 
         'views/actions.xml',   # primer accions
         'views/menus.xml',     # després menús
         'views/enrollment_subject_views.xml', 
