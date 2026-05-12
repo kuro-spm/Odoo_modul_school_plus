@@ -105,6 +105,32 @@
 
                         </table>
 
+                        <t t-if="len(o.enrollment_ids)>0">
+                            <h2>Enrollments</h2>
+                            <table class="table table-condensed table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Course Edition</th>
+                                        <th>Qualification</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.enrollment_ids" t-as="enrollment">
+                                        <tr>
+                                            <td>
+                                                <span t-field="enrollment.edition_id.display_name"></span>
+                                            </td>
+                                            <td>
+                                                <span t-field="enrollment.qualification"></span>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+
+                            </table>
+                            
+                        </t>
+
 
                         <!--Final del report-->
                     </div>
