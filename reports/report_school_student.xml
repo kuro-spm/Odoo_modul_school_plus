@@ -47,10 +47,37 @@
                                     <td colspan="3">
                                         <span t-field="o.country_id.name"></span>
                                     </td>
-
+                                    <td>
+                                        <strong>Gender:</strong>
+                                    </td>
+                                    <td colspan="3">
+                                        <span t-field="o.gender"></span>
+                                    </td>
                                 </tr>
                                 <tr>
-
+                                    <td>
+                                        <strong>Phone:</strong>
+                                    </td>
+                                    <td colspan="3">
+                                        <span t-field="o.phone"></span>
+                                    </td>
+                                    <td>
+                                        <strong>Email:</strong>
+                                    </td>
+                                    <td colspan="3">
+                                        <span t-field="o.email"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <strong>Address:</strong>
+                                        <span t-field="o.address1"></span>
+                                        <span t-field="o.address2"></span>
+                                        <span t-field="o.zip_code"></span>
+                                        <span t-field="o.city"></span>
+                                        <span t-field="o.state_id.name"></span>
+                                        <span t-field="o.state_country_id.name"></span>
+                                    </td>
                                 </tr>
 
                                 <t t-if="o.age &gt; 14">
