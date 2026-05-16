@@ -28,7 +28,7 @@
                     <!-- PESTANYA DE BOTONS (FOOTER) -->
                     <footer>
                         <!-- Botons propis de la fase de configuració (estat 'init') -->
-                        <button string="Execute" name="count_editions" type="object" class="btn-primary" invisible="state != 'init'" />
+                        <button string="Execute" name="count_students" type="object" class="btn-primary" invisible="state != 'init'" />
                         <button string="Cancel" special="cancel" class="btn-secondary" invisible="state != 'init'" />
 
                         <!-- Botons propis de la fase de resultat final (estat 'done') -->
