@@ -19,8 +19,10 @@
     <menuitem
         name="How many students in an edition"
         id="menu_school_wizard_count_students"
+        sequence="50"
         parent="school.menu_school_wizards"
         action="school_edition_enrollment_wizard_action" />
+
     <!--Recordatori: Cridar el modul pare (school.)-->
 
 
