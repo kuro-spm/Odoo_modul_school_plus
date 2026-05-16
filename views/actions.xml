@@ -16,4 +16,11 @@
         <field name="context">{}</field>
     </record>
 
+    <record id="school_edition_enrollment_wizard_action" model="ir.actions.act_window">
+        <field name="name">Edition Wizard</field>
+        <field name="res_model">school.edition.enrollment.wizard</field>
+        <field name="view_mode">form</field> <!--sempre form?-->
+        <field name="target">new</field> <!--target?-->
+    </record>
+
 </odoo>

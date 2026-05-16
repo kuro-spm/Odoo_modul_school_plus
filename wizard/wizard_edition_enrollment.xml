@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- school.edition.enrollment.wizard form view -->
+    <record id="school_edition_enrollment_wizard_view_form" model="ir.ui.view">
+        <field name="name">school.edition.enrollment.wizard.view.form</field>
+        <field name="model">school.edition.enrollment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="How many students in an Edition">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="init,done" />
+                </header>
+                <sheet>
+                    <!-- SECCIÓ DE FILTRES: Pertany exclusivament a l'estat 'init' -->
+                    <group name='Filters' invisible="state != 'init'">
+                        <!-- Add your fields here -->
+                        <group colspan="4">
+                            <field name="course_edition_id" widget='selection' />
+                        </group>
+                    </group>
+                    <!-- SECCIÓ DE RESULTATS: Pertany exclusivament a l'estat 'done' -->
+                    <group name="result_section" invisible="state != 'done'">
+                        <field name="n_enrolled_students" />
+                        <field name='n_succesfull_students' />
+                        <field name="n_failed_students" />
+                    </group>
+
+                    <!-- PESTANYA DE BOTONS (FOOTER) -->
+                    <footer>
+                        <!-- Botons propis de la fase de configuració (estat 'init') -->
+                        <button string="Execute" name="count_editions" type="object" class="btn-primary" invisible="state != 'init'" />
+                        <button string="Cancel" special="cancel" class="btn-secondary" invisible="state != 'init'" />
+
+                        <!-- Botons propis de la fase de resultat final (estat 'done') -->
+                        <button string="Close" special="cancel" class="btn-primary" invisible="state != 'done'" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--S'ha afegit el record-->
+    <!--<record id="school_edition_enrollment_wizard_action" model="ir.actions.act_window"> <field name="name">Edition Wizard</field> <field name="res_model">school.edition.enrollment.wizard</field> <field name="view_mode">form</field> <field name="target">new</field> </record>-->
+
+    <!--S'ha afegit el menuitem-->
+    <!--<menuitem name="How many students in an edition" id="menu_school_wizard_count_students" parent="menu_school_wizards" action="action_school_wizard_count_students" />-->
 
 </odoo>
