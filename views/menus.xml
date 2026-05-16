@@ -16,11 +16,12 @@
         parent='school.menu_root'
         action='school_student_action' />
 
-   <menuitem 
-        name="How many students in an edition" 
+    <menuitem
+        name="How many students in an edition"
         id="menu_school_wizard_count_students"
-        parent="menu_school_wizards" 
-        action="action_school_wizard_count_students" />
+        parent="school.menu_school_wizards"
+        action="school_edition_enrollment_wizard_action" />
+    <!--Recordatori: Cridar el modul pare (school.)-->
 
 
 </odoo> 
