@@ -56,13 +56,13 @@ class SchoolEnrollment(models.Model):
 
                 # Per cada assignatura del curs, creem un registre a 'school.enrollment.subject'
                 for linia in assignatures_curs:
-                    nota_inicial = {}
-                    nota_inicial['enrollment_id'] = matricula.id
-                    nota_inicial['subject_id'] = linia.id  
-                    nota_inicial['qualification'] = 0.0
+                    subject = {}
+                    subject['enrollment_id'] = matricula.id
+                    subject['subject_id'] = linia.id  
+                    subject['qualification'] = 0.0
                     
                     # Creem el registre de la nota utilitzant el diccionari preparat
-                    self.env['school.enrollment.subject'].create(nota_inicial)
+                    self.env['school.enrollment.subject'].create(subject)
 
         # 3. Retornem el recordset de matrícules
         return r    
